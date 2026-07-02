@@ -26,8 +26,11 @@ The model simply returns state 0 or 1 for each data - obviously offering no insi
 <img width="616" height="180" alt="image" src="https://github.com/user-attachments/assets/45d72e11-5f57-4958-b4b9-b98b1491a6f2" />
 
 State 0 is recession/stress - higher than average job losses, elevated volatility, steep yield curve, neutral/falling inflation, evidently prevalent in 2001, 2007-9
+
 State 1 is inflation/tightening - tight labour market, inverted yield curve, very high volatility, very high inflation, evidently prevalent in 2021-22
+
 State 2 is late cycle/complacency - healthy labour market, strongly inverted yield curve, falling/calm volatility, unchanging inflation, evidently prevalent in 2004 and 2023 and 2026 so far
+
 State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary, evidently prevalent in 2002-3, 2010, 2024-25
 
 Some concerns with the models output - 2024/2025 measured as crisis when it was not. State 3 does not distinguis genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable.
