@@ -24,16 +24,11 @@ The data is arranged where each column is a variable, and each row a date. The K
 The model simply returns state 0 or 1 for each data - obviously offering no insight into what each state actually is. For each state, I'll manually inspect the parameters for each variable (mean indicates what state, variance indicates the reliability - if high then the model lacks confidence), aswell as cross check known state changes in history. Or use an LLM to do it.
 
 <img width="616" height="180" alt="image" src="https://github.com/user-attachments/assets/45d72e11-5f57-4958-b4b9-b98b1491a6f2" />
-<img width="380" height="40" alt="image" src="https://github.com/user-attachments/assets/0116d0d2-f626-4b0d-80ca-d503750b9df1" />
-<img width="402" height="72" alt="image" src="https://github.com/user-attachments/assets/46ed01e6-501c-44b6-93b0-a5c90893f257" />
-<img width="390" height="40" alt="image" src="https://github.com/user-attachments/assets/4cff96c0-1c8d-4701-aa91-79286ab11f9d" />
-<img width="378" height="28" alt="image" src="https://github.com/user-attachments/assets/8a99f0ff-a9da-4c29-bf9a-182b1d81ae39" />
-<img width="394" height="80" alt="image" src="https://github.com/user-attachments/assets/30e98367-5e66-42b3-9d0c-e1a09d5bf69b" />
 
-State 0 is recession/stress - higher than average job losses, elevated volatility, steep yield curve, neutral/falling inflation, prevalent in 2001, 2007-9
-State 1 is inflation/tightening - tight labour market, inverted yield curve, very high volatility, very high inflation, prevalent in 2021-22
-State 2 is late cycle/complacency - healthy labour market, strongly inverted yield curve, falling/calm volatility, unchanging inflation, prevalent in 2004 and 2023 and 2026 so far
-State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary, prevalent in 2002-3, 2010, 2024-25
+State 0 is recession/stress - higher than average job losses, elevated volatility, steep yield curve, neutral/falling inflation, evidently prevalent in 2001, 2007-9
+State 1 is inflation/tightening - tight labour market, inverted yield curve, very high volatility, very high inflation, evidently prevalent in 2021-22
+State 2 is late cycle/complacency - healthy labour market, strongly inverted yield curve, falling/calm volatility, unchanging inflation, evidently prevalent in 2004 and 2023 and 2026 so far
+State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary, evidently prevalent in 2002-3, 2010, 2024-25
 
 Some concerns with the models output - 2024/2025 measured as crisis when it was not. State 3 does not distinguis genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable.
 
