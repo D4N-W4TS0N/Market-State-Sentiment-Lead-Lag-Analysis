@@ -33,7 +33,7 @@ State 2 is late cycle/complacency - healthy labour market, strongly inverted yie
 
 State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary, evidently prevalent in 2002-3, 2010, 2024-25.
 
-Some concerns with the models output - 2024/2025 measured as crisis when it was not. State 3 does not distinguis genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable.
+Some concerns with the models output - 2024/2025 measured as crisis when it was not. State 3 does not distinguish genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable.
 
 
 
