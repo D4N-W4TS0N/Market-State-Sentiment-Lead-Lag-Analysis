@@ -18,7 +18,7 @@ The volatility index is a daily metric so will require no processing, whereas, C
 Then all data is normalised using a rolling z-score. For each day the mean and standard deviation of the previous 252 days (standard trading period, might change later) is taken, and the value for that day is calculated with (z = (x - μ) / σ) where z is the normalised value, x the raw value, μ the mean, and σ the stdev. This value tells you how many stdevs the value is from the mean. This means all data is normalised, where before jobless claims are in thousands, CPI is in percentage, VIX up to 80 etc, z-scoring removes this. Also, since the focus is on detecting regime changes, data must be contextualised - for example: 'high volatility' carries less value than 'volatility higher than the 252 day previous rolling average'. On consideration, CPI inflation will use a 1260 day window, as 252 days is insufficient - persistent high inflation over 2 years is plausible, using a small window would completely hide this signal over time, hence a 5 year window is probably better. Also, as CPI data is collected monthly, a longer window is sensible to match the lower frequency. The yield spread may pose a similar problem, but changing to a longer window would blunt the signal from an inversion, taking much longer to react so is not a good idea. Also, yield spread has no fixed target (like inflation has 2%), so what counts as 'normal' can change with rate cycles.
 
 ## Fitting the HMM
-The data is arranged where each column is a variable, and each row a date. The K value is then determined - which tells the model how many states to create; might use BIC to select K, or just pick (4-5 should work fine). The model then returns the emission paramters (mean and variance for each state), and the probabilities of moving between states. Then run Viterbi  to get the most probable state for each data - giving a time series of market states.
+The data is arranged where each column is a variable, and each row a date. The K value is then determined - which tells the model how many states to create; might use BIC to select K, or just pick (4-5 should work fine). The model then returns the emission paramters (mean and variance for each state), and the probabilities of moving between states. Then run Viterbi  to get the most probable state for each data - giving a time series of market states. I used BIC, it gave too high a number so I chose 4.
 
 ## Determining the states
 The model simply returns state 0 or 1 for each data - obviously offering no insight into what each state actually is. For each state, I'll manually inspect the parameters for each variable (mean indicates what state, variance indicates the reliability - if high then the model lacks confidence), aswell as cross check known state changes in history. Or use an LLM to do it.
@@ -31,9 +31,9 @@ The model simply returns state 0 or 1 for each data - obviously offering no insi
 <img width="394" height="80" alt="image" src="https://github.com/user-attachments/assets/30e98367-5e66-42b3-9d0c-e1a09d5bf69b" />
 
 State 0 is recession/stress - higher than average job losses, elevated volatility, steep yield curve, neutral/falling inflation, prevalent in 2001, 2007-9
-State 1 is inflation/tightening - tight labour market, inverted yield curve, very high volatility, very high inflation
-State 2 is late cycle/complacency - healthy labour market, strongly inverted yield curve, falling/calm volatility, unchanging inflation
-State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary
+State 1 is inflation/tightening - tight labour market, inverted yield curve, very high volatility, very high inflation, prevalent in 2021-22
+State 2 is late cycle/complacency - healthy labour market, strongly inverted yield curve, falling/calm volatility, unchanging inflation, prevalent in 2004 and 2023 and 2026 so far
+State 3 is is early recovery/expansion - strong labour market, steep upward curve, calming volatility, disinflationary, prevalent in 2002-3, 2010, 2024-25
 
 Some concerns with the models output - 2024/2025 measured as crisis when it was not. State 3 does not distinguis genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable.
 
