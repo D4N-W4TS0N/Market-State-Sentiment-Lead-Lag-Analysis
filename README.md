@@ -50,6 +50,7 @@ This approach only detected 2 qualifying transitions in fed sentiment before a r
 <img width="1316" height="684" alt="image" src="https://github.com/user-attachments/assets/0755c1ef-b911-4619-a27b-bfa9cbbb05d5" />
 
 NOTE: transition_date refers to the macro state change, first_rise_date refers to when Fed sentiment first begins to change.
+
 Across the observed period, Fed sentiment BEGINNING to change generally preceded the HMM detected regime change by a number of months (averaging 215 days). The shortest lead was 75 days in the early 2023 shift to recession/stress after the SVB crash. The longest lead was after the Trump tariffs in 2025, where Fed sentiment change preceded the observed shift in market state by 302 days, reflecting the very gradual transmission of inflation expectations into real macro data. (No causal claim can be made here though, as the market shift came after the Hormuz crisis, so it cannot be determined that the fed shift and the macro shift are related here).
 
 ## Limitations
