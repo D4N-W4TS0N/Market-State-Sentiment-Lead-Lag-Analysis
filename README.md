@@ -1,7 +1,7 @@
 # Market-State-Fed-Sentiment-Lead-Lag-Analysis
 
 ## Overview
-Uses a collection of macroeconomic variables to infer latent (hidden) macro states/regimes at given points in time using a Hidden Markov Model. Each state is then manually labelled using the mean values for each variable for each state (e.g. - a state with an upward yield curve, steady/target inflation, low volatility, high economic activity, tightening labour market would be labelled as 'steady expansion' or 'goldilocks'). Separately, FOMC minutes and Fed Chair speeches are ingested and classified by narrative theme using an LLM, producing a time series of Federal Reserve communication sentiment. Lead-lag analysis is then conducted to determine whether shifts in Fed communication tone precede macro regime transitions, and by how much. The sentiment pipeline is scoped to 2015 onwards due to the availability of structured digital Fed communication archives.
+Uses a collection of macroeconomic variables to infer latent (hidden) macro states/regimes at given points in time using a Hidden Markov Model. Each state is then manually labelled using the mean values for each variable for each state (e.g. - a state with an upward yield curve, steady/target inflation, low volatility, high economic activity, tightening labour market would be labelled as 'steady expansion' or 'goldilocks'). Separately, FOMC minutes and Fed Chair speeches are ingested and classified by narrative theme using an LLM, producing a time series of Federal Reserve communication sentiment. Lead-lag analysis is then conducted to determine whether shifts in Fed communication tone precede macro regime transitions, and by how much. The sentiment pipeline is scoped to the 2022-2023 range due to the availability of structured digital Fed communication archives.
 
 ## Economic variables
 **Volatility Index** (YFinance, VIX) - the most popular measure of the stock market's expected volatility on S&P 500 options. The most important variable, acting as a 'fear gauge', often being the first indicator to move after geopolitical tension or liquidity traps etc, certainly reacting before the data below.
@@ -36,6 +36,12 @@ State 3 is is early recovery/expansion - strong labour market, steep upward curv
 Some concerns with the models output - 2024/2025 partially measured as crisis/recession when it was not; suggests state 1 may not be hard recession  but general stress. Also, state 3 does not distinguish genuine growth from post-crisis stabilisation. May signal the need for credit spreads as a variable to differentiate them.
 
 ## Fed language classification
+I scrape the html links from the fomc calendar website, then extract the date and text content from each link. To keep token usage down, I'll pass only the text content after which the actual fed discussion starts, disregarding the first and last 1000 characters. This is then passed to the LLM, which is told to classify each fates fed discussion into one of the 4 narratives. The LLM is told to look for certain key words to avoid focusing on irrelevant content - e.g. 'members agreed', 'policy committee action'. The output of this is 4 scores for each date adding to 1 together, for each narrative on a given date:
+
+<img width="1422" height="336" alt="image" src="https://github.com/user-attachments/assets/392f340a-e628-4d5f-9400-d4f256216d3b" />
+
+The output appears plausible; recession/stress dominates discussions in early 2021, before shifting towards inflation/tightening as spending post covid hiked inflationary pressure.
+
 
 
 
